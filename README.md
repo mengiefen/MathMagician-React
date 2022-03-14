@@ -1,1 +1,1 @@
-# MathMagician-React
+MathMagician
