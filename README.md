@@ -1,4 +1,4 @@
-![](https://img.shields.io/badge/Microverse-blueviolet) ![](https://img.shields.io/badge/MENGSTU-FENTAW-success)
+![](https://img.shields.io/badge/Microverse-blueviolet) ![](https://img.shields.io/badge/MENGSTU-FENTAW-success) [![](https://img.shields.io/badge/LIVE-DEMO-blue)](https://mengiefen.github.io/MathMagician-React/)
 
 # Math Magician App
 
@@ -13,15 +13,20 @@ The "MathMagician" App is built with using React.js.
 
 ![screenshot](src/images/screenshot.png)
 
+
+## Deployement
+
+  [Live Demo](https://mengiefen.github.io/MathMagician-React/)
+
 ## Built with
 
-- Major languages: React.js, CSS
-- Technologies used: Github, Linters, Webpack, Gitflow, Babel
+    - Major languages: React.js, CSS
+    - Technologies used: Github, Linters, Webpack, Gitflow, Babel
 
 ## Prerequisites
 
-- npm ( Node Package Manager )
-- git and Github Account
+    - npm ( Node Package Manager )
+    - git and Github Account
 
 ## Getting Started
 
@@ -42,7 +47,7 @@ To get a local copy up and running follow these simple example steps.
 - Open http://localhost:3000 to view it in your browser.
 - `npm run build` Builds the app for production to the build folder.
 
-### Install
+## Linter Installation
 
 - To install local copy **Stylelint**
 
