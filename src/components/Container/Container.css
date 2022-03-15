@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
 .App {
   width: 100vw;
   height: 100vh;
@@ -23,13 +25,37 @@
   flex-wrap: wrap;
 }
 
+.display {
+  display: flex;
+  flex-direction: column;
+}
+
+.display-top {
+  padding: 0.5rem;
+  height: 50px;
+  background-color: rgb(72, 77, 74);
+  text-align: right;
+  margin: 0 1%;
+  color: #ffe;
+  border: 2px solid #999;
+  border-bottom: 2px solid transparent;
+  word-break: break-all;
+  white-space: normal;
+}
+
 .calc-display {
-  padding: 1rem 0.5rem;
+  min-height: 120px;
+  padding: 0 0.5rem;
   font-size: 3rem;
   background-color: rgb(72, 77, 74);
   text-align: right;
-  margin: 1%;
+  margin: 0 1%;
   color: #ffe;
+  border: 2px solid #999;
+  border-top: 2px solid transparent;
+  margin-bottom: 2%;
+  word-break: break-all;
+  white-space: normal;
 }
 
 .btn {
