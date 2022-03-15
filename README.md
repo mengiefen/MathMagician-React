@@ -1,4 +1,4 @@
-![](https://img.shields.io/badge/Microverse-blueviolet) ![](https://img.shields.io/badge/MENGSTU-FENTAW-success) [![](https://img.shields.io/badge/LIVE-DEMO-blue)](https://mengiefen.github.io/leaderboard-list-app/)
+![](https://img.shields.io/badge/Microverse-blueviolet) ![](https://img.shields.io/badge/MENGSTU-FENTAW-success)
 
 # Math Magician App
 
@@ -72,10 +72,6 @@ To get a local copy up and running follow these simple example steps.
 ## Acknowledgments
 
 - To morning session team,reviewers and standup team memebers.
-
-## Live Demo
-
-**[FOLLOW THIS LINK TO SEE THE LIVE DEMO](https://mengiefen.github.io/leaderboard-list-app/)**
 
 ## 📝 License
 
