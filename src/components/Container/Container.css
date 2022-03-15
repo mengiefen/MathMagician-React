@@ -1,0 +1,53 @@
+.App {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  max-width: 452px;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  border-radius: 10px;
+  background-color: #555;
+  color: #eee;
+  box-shadow: 3px 4px 34px -3px #333;
+}
+
+.btn-holder {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.calc-display {
+  padding: 1rem 0.5rem;
+  font-size: 3rem;
+  background-color: rgb(72, 77, 74);
+  text-align: right;
+  margin: 1%;
+  color: #ffe;
+}
+
+.btn {
+  background-color: rgb(32, 11, 34);
+  font-size: 1.5rem;
+  height: 60px;
+  width: 23%;
+  margin: 1%;
+  border-radius: 5px;
+  color: #ffe;
+  border: none;
+  box-shadow: 3px 4px 34px -3px rgba(98, 98, 122, 0.29);
+}
+
+.btn-color {
+  background-color: rgb(51, 35, 5);
+}
+
+.long {
+  width: 48%;
+}
