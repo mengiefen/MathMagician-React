@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-class Input extends PureComponent {
+class Display extends PureComponent {
   render() {
     const {
       className,
@@ -25,14 +25,14 @@ class Input extends PureComponent {
   }
 }
 
-Input.defaultProps = {
+Display.defaultProps = {
   total: '',
   next: '',
   operation: '',
   value: '',
 };
 
-Input.propTypes = {
+Display.propTypes = {
   value: PropTypes.string,
   className: PropTypes.string.isRequired,
   total: PropTypes.string,
@@ -40,4 +40,4 @@ Input.propTypes = {
   operation: PropTypes.string,
 };
 
-export default Input;
+export default Display;
