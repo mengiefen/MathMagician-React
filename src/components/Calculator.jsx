@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { useState } from 'react';
 import Container from './Container/Container';
 import Display from './Display/Display';
 import Buttons from './Button/Buttons';
@@ -12,79 +12,68 @@ const btnItems = [
   '0', '.', '=',
 ];
 
-class Calculator extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.total = '';
-    this.next = '';
-    this.operation = '';
-    this.state = {
-      displayValue: '',
-    };
-    this.display = this.display.bind(this);
-  }
+const Calculator = () => {
+  const [total, setTotal] = useState('');
+  const [next, setNext] = useState('');
+  const [operation, setOperation] = useState('');
+  const [displayValue, setDisplayValue] = useState('');
 
-  display(value) {
+  const display = (result, value) => {
+    setNext(result.next);
+    setTotal(result.total);
+    setOperation(result.operation);
+
+    if ((!total && !operation)
+    || (total && operation)) {
+      setDisplayValue(result.next);
+    }
+
+    if (((!next && total)
+    || (next && total))
+    && value === '=') {
+      setDisplayValue(result.total);
+    }
+    if (value === 'AC') {
+      setDisplayValue(null);
+    }
+
+    if (value === '+/-') {
+      setDisplayValue(String(-(displayValue)));
+    }
+  };
+
+  const update = (value) => {
     const result = calculate(
-      {
-        total: this.total,
-        next: this.next,
-        operation: this.operation,
-      },
+      { total, next, operation },
       value,
     );
-    this.total = result.total;
-    this.next = result.next;
-    this.operation = result.operation;
+    console.log(result);
+    display(result, value);
+  };
 
-    if ((!this.total && !this.operation)
-    || (this.total && this.operation)) {
-      this.setState({
-        displayValue: this.next,
-      });
-    }
-
-    if (!this.next && this.operation) {
-      this.setState({
-        displayValue: this.operation,
-      });
-    }
-
-    if (((!this.next && this.total)
-    || (this.next && this.total))
-    && value === '=') {
-      this.setState({
-        displayValue: this.total,
-      });
-    }
-  }
-
-  render() {
-    const { displayValue } = this.state;
-    return (
-      <div className="container">
-        <Display
-          value={displayValue}
-          className="calc-display"
-          total={this.total}
-          next={this.next}
-          operation={this.operation}
-        />
-        <Container>
-          <>
-            {btnItems.flat().map((btn) => (
-              <Buttons
-                className={btn === '0' ? 'btn long' : 'btn'}
-                key={btn}
-                value={btn}
-                onClick={this.display}
-              />
-            ))}
-          </>
-        </Container>
-      </div>
-    );
-  }
-}
+  return (
+    <div className="container">
+      <Display
+        value={displayValue}
+        className="calc-display"
+        total={total}
+        next={next}
+        operation={operation}
+      />
+      <Container>
+        <>
+          {btnItems.flat().map((btn) => (
+            <Buttons
+              className={btn === '0' ? 'btn long' : 'btn'}
+              key={btn}
+              value={btn}
+              onClick={(val) => update(val)}
+            />
+          ))}
+        </>
+      </Container>
+    </div>
+  );
+};
 
 export default Calculator;
