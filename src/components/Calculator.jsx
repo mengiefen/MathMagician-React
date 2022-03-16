@@ -1,13 +1,14 @@
 import React, { PureComponent } from 'react';
 import Container from './Container/Container';
-import Input from './Input/Input';
+import Display from './Display/Display';
 import Buttons from './Button/Buttons';
-import Operate from '../Logic/operate';
+// import Check from '../Logic/check';
+import calculate from '../Logic/calculator';
 
-const operate = new Operate();
+// const check = new Check();
 
 const btnItems = [
-  'AC', '+/-', '%', '/',
+  'AC', '+/-', '%', '÷',
   '7', '8', '9', 'x',
   '4', '5', '6', '-',
   '1', '2', '3', '+',
@@ -17,9 +18,9 @@ const btnItems = [
 class Calculator extends PureComponent {
   constructor(props) {
     super(props);
-    this.firstArgument = '';
-    this.secondArgument = '';
-    this.operator = '';
+    this.total = '';
+    this.next = '';
+    this.operation = '';
     this.state = {
       displayValue: '',
     };
@@ -27,89 +28,50 @@ class Calculator extends PureComponent {
   }
 
   display(value) {
-    const { displayValue } = this.state;
-    if (!this.firstArgument && operate.checkForOperator(value)) return;
-    if (displayValue
-        && !this.firstArgument
-        && !this.secondArgument
-        && !this.operator
-        && operate.checkForNumber(value)) {
-      this.clearDisplay();
-    }
+    const result = calculate(
+      {
+        total: this.total,
+        next: this.next,
+        operation: this.operation,
+      },
+      value,
+    );
+    this.total = result.total;
+    this.next = result.next;
+    this.operation = result.operation;
 
-    if (this.firstArgument && operate.checkForOperator(value)) {
-      this.clearDisplay();
-      this.operator = value;
+    if ((!this.total && !this.operation)
+    || (this.total && this.operation)) {
       this.setState({
-        displayValue: value,
+        displayValue: this.next,
       });
     }
-    if (
-      !this.operator
-      && !operate.checkForOperator(value)
-      && operate.checkForNumber(value)
-      && operate.checkForDots(this.firstArgument, value)
-    ) {
-      this.firstArgument += value;
-      this.setState((state) => ({
-        displayValue: state.displayValue + value,
-      }));
-    }
-    if (
-      this.firstArgument
-      && this.operator
-      && operate.checkForNumber(value)
-      && operate.checkForDots(this.secondArgument, value)
-    ) {
-      this.secondArgument += value;
-      this.setState(() => ({
-        displayValue: this.secondArgument,
-      }));
-    }
 
-    if (value === 'AC') {
-      this.clearDisplay();
-      this.clearAguments();
-    }
-
-    if ((this.firstArgument && this.operator && this.secondArgument)
-      && (value === '=')) {
-      this.clearDisplay();
-      const result = operate.compute(
-        this.operator,
-        Number(this.firstArgument),
-        Number(this.secondArgument),
-      );
-      this.clearAguments();
-
+    if (!this.next && this.operation) {
       this.setState({
-        displayValue: String(result),
+        displayValue: this.operation,
       });
     }
-  }
 
-  clearDisplay() {
-    this.setState({
-      displayValue: '',
-    });
-  }
-
-  clearAguments() {
-    this.firstArgument = '';
-    this.secondArgument = '';
-    this.operator = '';
+    if (((!this.next && this.total)
+    || (this.next && this.total))
+    && value === '=') {
+      this.setState({
+        displayValue: this.total,
+      });
+    }
   }
 
   render() {
     const { displayValue } = this.state;
     return (
       <div className="container">
-        <Input
+        <Display
           value={displayValue}
           className="calc-display"
-          firstArgument={this.firstArgument}
-          secondArgument={this.secondArgument}
-          operator={this.operator}
+          total={this.total}
+          next={this.next}
+          operation={this.operation}
         />
         <Container>
           <>
