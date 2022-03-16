@@ -1,80 +1,30 @@
-import Calc from './calculator';
+import Big from 'big.js';
 
-const Calculate = new Calc();
-
-class Operate {
-  constructor() {
-    this.result = null;
-    this.isOperator = null;
+export default function operate(numberOne, numberTwo, operation) {
+  const one = Big(numberOne);
+  const two = Big(numberTwo);
+  if (operation === '+') {
+    return one.plus(two).toString();
   }
-
-  compute(operator, arg1, arg2) {
-    switch (operator) {
-      case '+':
-        this.result = Calculate.add(arg1, arg2);
-        break;
-      case '-':
-        this.result = Calculate.subtract(arg1, arg2);
-        break;
-
-      case 'x':
-        this.result = Calculate.multiply(arg1, arg2);
-        break;
-      case '/':
-        this.result = Calculate.divide(arg1, arg2);
-        break;
-      case '%':
-        this.result = Calculate.modulus(arg1, arg2);
-        break;
-      case '+/-':
-        this.result = Calculate.plusOrMinus(arg1, arg2);
-        break;
-      default:
-        return false;
+  if (operation === '-') {
+    return one.minus(two).toString();
+  }
+  if (operation === 'x') {
+    return one.times(two).toString();
+  }
+  if (operation === '÷') {
+    try {
+      return one.div(two).toString();
+    } catch (err) {
+      return "Can't divide by 0.";
     }
-    return this.result;
   }
-
-  checkForOperator(value) {
-    switch (value) {
-      case '+':
-        this.isOperator = true;
-        break;
-      case '-':
-        this.isOperator = true;
-        break;
-
-      case 'x':
-        this.isOperator = true;
-        break;
-      case '/':
-        this.isOperator = true;
-        break;
-      case '%':
-        this.isOperator = true;
-        break;
-      case '+/-':
-        this.isOperator = true;
-        break;
-      default:
-        return false;
+  if (operation === '%') {
+    try {
+      return one.mod(two).toString();
+    } catch (err) {
+      return "Can't find modulo as can't divide by 0.";
     }
-    return this.isOperator;
   }
-
-  checkForNumber = (value) => {
-    const val = Number(value);
-    if (Number.isNaN(val) && value !== '.') {
-      return false;
-    }
-    return true;
-  }
-
-  checkForDots(number, currentValue) {
-    this.valid = true;
-    if (number.includes('.') && currentValue === '.') this.valid = false;
-    return this.valid;
-  }
+  throw Error(`Unknown operation '${operation}'`);
 }
-
-export default Operate;
