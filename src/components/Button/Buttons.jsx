@@ -1,30 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class Buttons extends React.Component {
-  handleClick= (e) => {
-    const { onClick } = this.props;
+const Buttons = ({ value, className, onClick }) => {
+  const handleClick = (e) => {
     onClick(e.currentTarget.value);
-  }
+  };
 
-  render() {
-    const { value, className } = this.props;
-    return (
-      <input
-        className={
-          value === '/'
-          || value === '+' || value === '-'
-          || value === '=' || value === 'x'
-            ? `${className} btn-color`
-            : className
-        }
-        type="submit"
-        value={value}
-        onClick={this.handleClick}
-      />
-    );
-  }
-}
+  return (
+    <input
+      className={
+        value === '/'
+        || value === '+' || value === '-'
+        || value === '=' || value === 'x'
+          ? `${className} btn-color`
+          : className
+      }
+      type="submit"
+      value={value}
+      onClick={handleClick}
+    />
+  );
+};
 
 Buttons.propTypes = {
   value: PropTypes.string.isRequired,

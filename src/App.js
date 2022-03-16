@@ -1,14 +1,12 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import Calculator from './components/Calculator';
+import Time from './components/Time/Time';
 
-class App extends PureComponent {
-  render() {
-    return (
-      <div className="App">
-        <Calculator />
-      </div>
-    );
-  }
-}
+const App = () => (
+  <div className="App">
+    <Time />
+    <Calculator />
+  </div>
+);
 
 export default App;

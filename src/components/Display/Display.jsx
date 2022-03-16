@@ -1,29 +1,25 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-class Display extends PureComponent {
-  render() {
-    const {
-      className,
-      value,
-      total,
-      operation,
-      next,
-    } = this.props;
-    return (
-      <div className="display">
-        <p className="display-top">
-          {total}
-          {operation}
-          {next}
-        </p>
-        <p className={className}>
-          {value}
-        </p>
-      </div>
-    );
-  }
-}
+const Display = (props) => {
+  const {
+    className,
+    value,
+    total,
+    operation,
+    next,
+  } = props;
+  return (
+    <div className="display">
+      <p className="display-top">
+        {total}
+        {operation}
+        {next}
+      </p>
+      <p className={className}>{value}</p>
+    </div>
+  );
+};
 
 Display.defaultProps = {
   total: '',
