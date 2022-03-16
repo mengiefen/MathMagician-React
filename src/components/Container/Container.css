@@ -69,6 +69,7 @@
   color: #ffe;
   border: none;
   box-shadow: 3px 4px 34px -3px rgba(98, 98, 122, 0.29);
+  cursor: pointer;
 }
 
 .btn-color {
