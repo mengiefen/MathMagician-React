@@ -13,7 +13,7 @@
     "sourceType": "module"
   },
   "extends": ["airbnb", "plugin:react/recommended"],
-  "plugins": ["react"],
+  "plugins": ["react"],  
   "rules": {
     "react/jsx-filename-extension": [
       "warn",
