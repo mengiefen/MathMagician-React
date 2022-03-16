@@ -2,10 +2,7 @@ import React, { PureComponent } from 'react';
 import Container from './Container/Container';
 import Display from './Display/Display';
 import Buttons from './Button/Buttons';
-// import Check from '../Logic/check';
 import calculate from '../Logic/calculator';
-
-// const check = new Check();
 
 const btnItems = [
   'AC', '+/-', '%', '÷',
