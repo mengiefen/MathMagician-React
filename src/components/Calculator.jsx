@@ -47,7 +47,6 @@ const Calculator = () => {
       { total, next, operation },
       value,
     );
-    console.log(result);
     display(result, value);
   };
 
