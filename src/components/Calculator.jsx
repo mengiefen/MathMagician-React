@@ -1,16 +1,33 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import Container from './Container/Container';
 import Display from './Display/Display';
 import Buttons from './Button/Buttons';
 import calculate from '../Logic/calculator';
 
-const btnItems = [
-  'AC', '+/-', '%', '÷',
-  '7', '8', '9', 'x',
-  '4', '5', '6', '-',
-  '1', '2', '3', '+',
-  '0', '.', '=',
+const btnItems = ['AC', '+/-', '%', '÷',
+  '7', '8', '9', 'x', '4', '5', '6', '-',
+  '1', '2', '3', '+', '0', '.', '=',
 ];
+
+function useKey(cb) {
+  const callbackRef = useRef(cb);
+
+  useEffect(() => {
+    callbackRef.current = cb;
+  });
+
+  function handleKeyPress(event) {
+    if (event.code) {
+      callbackRef.current(event);
+    }
+  }
+  useEffect(() => {
+    document.addEventListener('keypress', handleKeyPress);
+    return () => {
+      document.removeEventListener('keypress', handleKeyPress);
+    };
+  }, []);
+}
 
 const Calculator = () => {
   const [total, setTotal] = useState('');
@@ -23,32 +40,39 @@ const Calculator = () => {
     setTotal(result.total);
     setOperation(result.operation);
 
-    if ((!total && !operation)
-    || (total && operation)) {
+    if ((!total && !operation) || (total && operation)) {
       setDisplayValue(result.next);
     }
 
-    if (((!next && total)
-    || (next && total))
-    && value === '=') {
+    if (
+      ((!next && total) || (next && total))
+      && (value === '=' || value === 'Enter')
+    ) {
+      setNext('');
+      setOperation('');
       setDisplayValue(result.total);
     }
-    if (value === 'AC') {
+    if (value === 'AC' || value === 'q') {
       setDisplayValue(null);
+      setNext(null);
+      setOperation(null);
+      setTotal(null);
     }
 
     if (value === '+/-') {
-      setDisplayValue(String(-(displayValue)));
+      setDisplayValue(String(-displayValue));
     }
   };
 
   const update = (value) => {
-    const result = calculate(
-      { total, next, operation },
-      value,
-    );
+    const result = calculate({ total, next, operation }, value);
     display(result, value);
   };
+
+  const handleCallback = (e) => {
+    update(e.key);
+  };
+  useKey(handleCallback);
 
   return (
     <div className="container">
