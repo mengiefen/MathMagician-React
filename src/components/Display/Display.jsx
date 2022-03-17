@@ -9,6 +9,7 @@ const Display = (props) => {
     operation,
     next,
   } = props;
+
   return (
     <div className="display">
       <p className="display-top">
