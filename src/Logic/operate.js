@@ -9,10 +9,10 @@ export default function operate(numberOne, numberTwo, operation) {
   if (operation === '-') {
     return one.minus(two).toString();
   }
-  if (operation === 'x') {
+  if (operation === 'x' || operation === '*') {
     return one.times(two).toString();
   }
-  if (operation === '÷') {
+  if (operation === '÷' || operation === '/') {
     try {
       return one.div(two).toString();
     } catch (err) {
@@ -23,7 +23,7 @@ export default function operate(numberOne, numberTwo, operation) {
     try {
       return one.mod(two).toString();
     } catch (err) {
-      return "Can't find modulo as can't divide by 0.";
+      return "Can't divide by 0.";
     }
   }
   throw Error(`Unknown operation '${operation}'`);
