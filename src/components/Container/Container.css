@@ -1,4 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Codystar:wght@300;400&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rye&display=swap');
+
+.html {
+  font-size: 16px;
+}
 
 .App {
   width: 100vw;
@@ -7,19 +11,63 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+  font-family: 'Roboto', sans-serif;
+  position: relative;
+  background-color: #eee;
 }
 
 .timer {
-  font-size: 2rem;
-  margin-bottom: 1rem;
+  font-size: 1.5rem;
   letter-spacing: 1.5px;
   font-weight: bold;
   color: rgb(32, 11, 34);
+  padding-right: 10rem;
+}
+
+.calc-page {
+  position: absolute;
+  top: 6rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  gap: 10%;
+}
+
+.quote-page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #eee;
+}
+
+.quote {
+  width: 60%;
+  color: var(--dark-blue);
+}
+
+.home-page {
+  position: absolute;
+  top: 0;
+  margin: 0;
+  padding: 8rem 4rem 0 4rem;
+  display: flex;
+  flex-direction: column;
+  background-color: #eee;
+}
+
+.home-page p {
+  line-height: 1.5;
 }
 
 .container {
-  max-width: 452px;
+  max-width: 30vw;
   display: flex;
   flex-direction: column;
   padding: 2rem;
@@ -41,7 +89,7 @@
 
 .display-top {
   padding: 0.5rem;
-  height: 50px;
+  height: 2rem;
   background-color: rgb(72, 77, 74);
   text-align: right;
   margin: 0 1%;
@@ -53,9 +101,9 @@
 }
 
 .calc-display {
-  min-height: 120px;
+  min-height: 6rem;
   padding: 0 0.5rem;
-  font-size: 3rem;
+  font-size: 2.5rem;
   background-color: rgb(72, 77, 74);
   text-align: right;
   margin: 0 1%;
@@ -70,7 +118,7 @@
 .btn {
   background-color: rgb(32, 11, 34);
   font-size: 1.5rem;
-  height: 60px;
+  height: 3.5rem;
   width: 23%;
   margin: 1%;
   border-radius: 5px;
@@ -78,10 +126,19 @@
   border: none;
   box-shadow: 3px 4px 34px -3px rgba(98, 98, 122, 0.29);
   cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn:hover {
+  background-color: rgba(32, 11, 34, 0.8);
 }
 
 .btn-color {
   background-color: rgb(51, 35, 5);
+}
+
+.btn-color:hover {
+  background-color: rgba(51, 35, 5, 0.8);
 }
 
 .long {

@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
-import Container from './Container/Container';
-import Display from './Display/Display';
-import Buttons from './Button/Buttons';
+import Container from '../components/Container/Container';
+import Display from '../components/Display/Display';
+import Buttons from '../components/Button/Buttons';
 import calculate from '../Logic/calculator';
 
 const btnItems = ['AC', '+/-', '%', '÷',
@@ -75,26 +75,29 @@ const Calculator = () => {
   useKey(handleCallback);
 
   return (
-    <div className="container">
-      <Display
-        value={displayValue}
-        className="calc-display"
-        total={total}
-        next={next}
-        operation={operation}
-      />
-      <Container>
-        <>
-          {btnItems.flat().map((btn) => (
-            <Buttons
-              className={btn === '0' ? 'btn long' : 'btn'}
-              key={btn}
-              value={btn}
-              onClick={(val) => update(val)}
-            />
-          ))}
-        </>
-      </Container>
+    <div className="calc-page">
+      <h2>Let&apos;s do some math! </h2>
+      <div className="container">
+        <Display
+          value={displayValue}
+          className="calc-display"
+          total={total}
+          next={next}
+          operation={operation}
+        />
+        <Container>
+          <>
+            {btnItems.flat().map((btn) => (
+              <Buttons
+                className={btn === '0' ? 'btn long' : 'btn'}
+                key={btn}
+                value={btn}
+                onClick={(val) => update(val)}
+              />
+            ))}
+          </>
+        </Container>
+      </div>
     </div>
   );
 };
