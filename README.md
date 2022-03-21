@@ -11,7 +11,7 @@ The "MathMagician" App is built with using React.js.
 
 ## Screenshot
 
-![screenshot](src/images/screenshot.png)
+![screenshot](src/images/screenshot.gif)
 
 
 ## Deployement
