@@ -3,11 +3,7 @@ import PropTypes from 'prop-types';
 
 const Display = (props) => {
   const {
-    className,
-    value,
-    total,
-    operation,
-    next,
+    className, value, total, operation, next,
   } = props;
 
   return (

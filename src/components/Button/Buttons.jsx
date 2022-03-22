@@ -9,9 +9,7 @@ const Buttons = ({ value, className, onClick }) => {
   return (
     <input
       className={
-        value === '/'
-        || value === '+' || value === '-'
-        || value === '=' || value === 'x'
+        value === '/' || value === '+' || value === '-' || value === '=' || value === 'x'
           ? `${className} btn-color`
           : className
       }
