@@ -13,10 +13,11 @@ The "MathMagician" App is built with using React.js.
 
 ![screenshot](src/images/screenshot.gif)
 
-
 ## Deployement
 
-  [Live Demo](https://mengiefen.github.io/MathMagician-React/)
+- [Live Demo-Github](https://mengiefen.github.io/MathMagician-React/)
+- [Live Demo-Heroku](https://menge-math.herokuapp.com/)
+- [Live Demo- Netlify](https://comforting-brioche-0ff77a.netlify.app/)
 
 ## Built with
 
