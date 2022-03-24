@@ -1,10 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rye&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rye&display=swap');
 
+*,
 .html {
+  margin: 0;
+  box-sizing: border-box;
   font-size: 16px;
 }
 
 .App {
+  margin: 0;
+  padding: 0;
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -13,14 +18,15 @@
   justify-content: center;
   font-family: 'Roboto', sans-serif;
   position: relative;
-  background-color: #eee;
+  background-color: #2c2b30;
+  overflow: hidden;
 }
 
 .timer {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   letter-spacing: 1.5px;
   font-weight: bold;
-  color: rgb(32, 11, 34);
+  color: #f58f7c;
   padding-right: 10rem;
 }
 
@@ -31,6 +37,13 @@
   display: flex;
   justify-content: space-evenly;
   gap: 10%;
+  color: #f58f7c;
+}
+
+.calc-page h2 {
+  font-size: 2rem;
+  letter-spacing: 3px;
+  margin-bottom: 1.5rem;
 }
 
 .quote-page {
@@ -44,37 +57,56 @@
   justify-content: center;
   width: 100vw;
   height: 100vh;
-  background-color: #eee;
+  background-color: #2c2b30;
+  color: #f58f7c;
 }
 
 .quote {
   width: 60%;
   color: var(--dark-blue);
+  font-size: 2rem;
+  letter-spacing: 1px;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+  font-family: 'Kalam', cursive;
 }
 
 .home-page {
+  max-width: 80%;
   position: absolute;
   top: 0;
   margin: 0;
   padding: 8rem 4rem 0 4rem;
   display: flex;
   flex-direction: column;
-  background-color: #eee;
+  background-color: #2c2b30;
+  color: #f58f7c;
 }
 
 .home-page p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
   line-height: 1.5;
+  color: #d6d6d6;
+  text-align: justify;
+}
+
+.home-page h1 {
+  font-size: 2rem;
+  letter-spacing: 1px;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
 }
 
 .container {
-  max-width: 30vw;
+  max-width: 33vw;
   display: flex;
   flex-direction: column;
   padding: 2rem;
   border-radius: 10px;
   background-color: #555;
   color: #eee;
-  box-shadow: 3px 4px 34px -3px #333;
+  box-shadow: 4px 4px 111px #4f4f51, -4px -4px 111px #4f4f51;
 }
 
 .btn-holder {
