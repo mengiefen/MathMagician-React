@@ -51,3 +51,59 @@
 .navLink:hover {
   border-bottom: 3px solid rgb(32, 11, 34);
 }
+
+.navOpen,
+.navClose {
+  display: none;
+  color: #d6d6d6;
+  font-size: 1.75rem;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 992px) {
+  .header {
+    padding: 1rem 1rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    height: auto;
+  }
+
+  .logo {
+    font-size: 1.4rem;
+  }
+
+  .navOpen {
+    display: block;
+  }
+
+  .navClose {
+    display: block;
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+  }
+
+  .timer {
+    display: none;
+  }
+
+  .navBar {
+    display: none;
+    justify-content: center;
+    padding-top: 7vh;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .navList {
+    flex-direction: column;
+  }
+
+  .navLink,
+  .navLink-active {
+    font-size: 1.75rem;
+  }
+}
