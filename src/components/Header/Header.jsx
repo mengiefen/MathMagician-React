@@ -15,18 +15,25 @@ const Header = () => {
     const navbar = document.querySelector('.header .navBar');
     const header = document.querySelector('.header > :not(.navBar)');
     const navOpen = document.querySelector('.header .navOpen');
-    navbar.style.display = 'block';
-    header.style.display = 'none';
-    navOpen.style.display = 'none';
+    const w = window.innerWidth;
+
+    if (w < 768) {
+      navbar.style.display = 'block';
+      header.style.display = 'none';
+      navOpen.style.display = 'none';
+    }
   };
 
   const closeNavBar = () => {
     const navbar = document.querySelector('.header .navBar');
     const header = document.querySelector('.header > :not(.navBar)');
     const navOpen = document.querySelector('.header .navOpen');
-    navbar.style.display = 'none';
-    header.style.display = 'block';
-    navOpen.style.display = 'block';
+    const w = window.innerWidth;
+    if (w < 768) {
+      navbar.style.display = 'none';
+      header.style.display = 'block';
+      navOpen.style.display = 'block';
+    }
   };
 
   return (
