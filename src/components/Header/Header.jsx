@@ -36,6 +36,17 @@ const Header = () => {
     }
   };
 
+  document.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+      const navbar = document.querySelector('.header .navBar');
+      const header = document.querySelector('.header > :not(.navBar)');
+      const navOpen = document.querySelector('.header .navOpen');
+      navbar.style.display = 'none';
+      header.style.display = 'block';
+      navOpen.style.display = 'block';
+    }
+  });
+
   return (
     <div className="header">
       <h2 className="logo">Math Magician</h2>
